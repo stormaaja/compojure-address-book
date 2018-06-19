@@ -38,7 +38,7 @@
       (add-contact-form))))
 
 (defn delete-route [request]
-  (let [contact-id (Integer/parseInt (get-in request [:params :id]))]
+  (let [contact-id (Integer/parseInt (get-in request [:params :contact-id]))]
     (reset! contacts (filterv #(not= (:id %) contact-id) @contacts))
     (response/redirect "/")))
 
